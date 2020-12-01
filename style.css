@@ -1,0 +1,375 @@
+:root {
+  --gray-color: #ececec;
+  --gray-light-color: #f9f9f9;
+  --green-color: #70a84b;
+  --yellow-color: #fcd329;
+  --red-color: #ed5243;
+  --color-font: #555555;
+  --font-family: "GothamPro", "Arial", sans-serif;
+}
+
+@font-face {
+  font-weight: 700;
+  font-family: "GothamPro";
+  font-style: normal;
+  src: url("../fonts/GothamPro-Bold.woff2") format("woff2"),
+    url("../fonts/GothamPro-Bold.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: 400;
+  font-family: "GothamPro";
+  font-style: normal;
+  src: url("../fonts/GothamPro-Regular.woff2") format("woff2"),
+    url("../fonts/GothamPro-Regular.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: 300;
+  font-family: "GothamPro";
+  font-style: normal;
+  src: url("../fonts/GothamPro-Light.woff2") format("woff2"),
+    url("../fonts/GothamPro-Light.woff") format("woff");
+  font-display: swap;
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 21px;
+  font-family: var(--font-family);
+  color: var(--color-font);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+@keyframes circle-chart-fill {
+  to { stroke-dasharray: 0 100; }
+}
+
+.diagram {
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+}
+
+.diagram-block {
+  position: relative;
+  top: 109px;
+  z-index: 100;
+}
+
+.diagram::before {
+  position: absolute;
+  content: "";
+  width: 38px;
+  height: 47px;
+  left: 50%;
+  transform: translate(-50%);
+  top: 150px;
+  background-image: url('img/loyalty.svg');
+  opacity: 0.2;
+}
+
+.chart {
+  transform: rotate(-66deg);
+}
+
+.unit {
+  animation: circle-chart-fill 2s reverse;
+  fill: none;
+  stroke-linecap: round;
+}
+
+.unit:nth-child(1) {
+  stroke-width: 1.4;
+  stroke: var(--gray-color);
+  stroke-dasharray: 85 100;
+}
+
+.unit:nth-child(2) {
+  stroke-width: 1.6;
+  stroke: var(--green-color);
+  stroke-dasharray: 60 100;
+}
+
+.unit:nth-child(3) {
+  stroke-width: 1.8;
+  stroke: var(--yellow-color);
+  stroke-dasharray: 30 100;
+}
+
+.diagram-text-block {
+  position: absolute;
+  top: 130px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.diagram-percent {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 300;
+}
+
+.diagram-percent-float {
+  position: relative;
+  font-size: 16px;
+}
+
+.diagram-percent-sign {
+  font-size: 16px;
+  position: absolute;
+  top: -20px;
+  left: 0;
+}
+
+.diagram-about {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.diagram-status {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--yellow-color);
+}
+
+.diagram-info {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  opacity: 0.6;
+  line-height: 15px;
+}
+
+.diagram-index {
+  display: flex;
+  align-items: center;
+}
+
+.diagram-index-count {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  color: var(--green-color);
+  font-weight: 300;
+}
+
+.index-arrow {
+  margin-right: 5px;
+  width: 0px;
+  height: 0px;
+  border: 10px solid transparent;
+  border-bottom-color: var(--green-color);
+  border-top: 0;
+}
+
+.diagram-legent {
+  background-color: #ffffff;
+  position: relative;
+  border: 1px solid #b1b1b1;
+  border-right: none;
+  border-top: none;
+  background: linear-gradient( #b1b1b1, #b1b1b1);
+  background-size: 25px 1px;
+  background-repeat: no-repeat;
+  background-position: left top;
+  border-radius: 10px;
+  margin: 30px;
+  padding-top: 310px;
+  top: -140px;
+}
+
+.plus-icon {
+  position: absolute;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+
+  background:
+    linear-gradient(#b1b1b1, #b1b1b1),
+    linear-gradient(#b1b1b1, #b1b1b1);
+  background-position: center;
+  background-size: 50% 2px, 2px 50%;
+  background-repeat: no-repeat;
+  left: -10px;
+  bottom: 10px;
+}
+
+.plus-icon::before,
+.plus-icon::after {
+  position: absolute;
+  content: "";
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background-color: #ffffff;
+}
+
+.plus-icon::before {
+  top: -5px;
+}
+
+.plus-icon::after {
+  bottom: -5px;
+}
+
+.diagram-table {
+  border-radius: 10px;
+  background-color: #ffffff;
+  position: absolute;
+  width: 100%;
+  padding: 10px;
+  margin: 20px;
+  top: 200px;
+}
+
+.legend-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+
+.legend-row:nth-child(1)::before {
+  position: absolute;
+  content: "";
+
+  top: 12px;
+  left: -33px;
+  width: 20px;
+  height: 1px;
+
+  background-color: #b1b1b1;
+}
+
+.legend-name {
+  vertical-align: top;
+  font-weight: 700;
+}
+
+.legend-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: right;
+  justify-content: flex-end;
+  padding-right: 10px;
+  margin-left: auto;
+}
+
+.legend-percent {
+  width: 100%;
+  font-weight: 700;
+}
+
+.legend-person-count {
+  text-align: right;
+  margin-right: 10px;
+}
+
+.legend-peron-icon {
+  width: 14px;
+  height: 14px;
+  background-image: url("img/human_full.svg");
+  opacity: 0.5;
+  margin-right: 3px;
+}
+
+.legend-index {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  padding-right: 5px;
+  background-color: var(--gray-light-color);
+  border: 1px solid var(--gray-color);
+  width: 100px;
+  border-radius: 5px;
+  text-align: right;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.legend-progress-bar {
+  display: flex;
+  flex-direction: column;
+}
+
+.legend-progress {
+  width: 20px;
+  height: 40px;
+}
+
+.legent-subprogress {
+  width: 10px;
+  height: 8px;
+  opacity: 0.6;
+}
+
+.legend-row:nth-child(1) .legend-progress,
+.legend-row:nth-child(1) .legent-subprogress {
+  background-color: var(--green-color);
+}
+
+.legend-row:nth-child(1) .legend-progress {
+  width: 40px;
+}
+
+.legend-row:nth-child(1) .legent-subprogress {
+  width: 37px;
+}
+
+.legend-row:nth-child(2) .legend-progress,
+.legend-row:nth-child(2) .legent-subprogress {
+  background-color: var(--yellow-color);
+}
+
+.legend-row:nth-child(2) .legend-progress {
+  width: 42px;
+}
+
+.legend-row:nth-child(2) .legent-subprogress {
+  width: 35px;
+}
+
+.legend-row:nth-child(3) .legend-progress,
+.legend-row:nth-child(3) .legent-subprogress {
+  background-color: var(--red-color);
+}
+
+.legend-row:nth-child(3) .legend-progress {
+  width: 30px;
+}
+
+.legend-row:nth-child(3) .legent-subprogress {
+  width: 38px;
+}
